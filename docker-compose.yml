@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  python:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/python/dockerfile
+    container_name: python
+    restart: always
+    volumes:
+      - ./src:/usr/src/app
+      - ./cron.d:/etc/cron.d 
+    working_dir: /usr/src/app
+    tty: true
+    env_file:
+      - .env
+
+volumes:
+  mysql_data:
+    driver: local

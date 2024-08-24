@@ -1,0 +1,21 @@
+# Use the latest Python image
+FROM python:latest
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Install cron and necessary Python libraries
+RUN apt-get update && apt-get install -y cron && \
+    pip install discord.py python-dotenv
+
+# Copy the application files into the container
+COPY . .
+
+# Ensure cron logs are available
+RUN touch /var/log/cron.log
+
+# Set correct permissions for cron job files
+RUN chmod 0644 /etc/cron.d/*
+
+# Start the cron service, apply the cron job, and keep the container running
+CMD ["sh", "-c", "chmod 0644 /etc/cron.d/* && crontab /etc/cron.d/bot-cron && cron && tail -f /var/log/cron.log"]
