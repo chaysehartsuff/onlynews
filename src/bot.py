@@ -31,7 +31,7 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 # Run the bot with the token
-TOKEN = 'MTI3NjcwOTkzMjU2OTE5ODYxMg.G6yo4g.-weFJQOZW1mPRmYltJWfeiR0y_2frqzVk9yCzQ'
+TOKEN = '<DISCORD_TOKEN>'
 if TOKEN is None:
     raise ValueError("Discord token is not set. Please check your environment variables.")
 client.run(TOKEN)
