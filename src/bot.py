@@ -4,12 +4,9 @@ import discord
 import os
 from dotenv import load_dotenv
 
-
-print("debug")
-#exit()
-
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file in the current directory
+env_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=env_path)
 
 # Define the intents
 intents = discord.Intents.default()
@@ -31,7 +28,7 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 # Run the bot with the token
-TOKEN = must_get_from_config()
+TOKEN = os.getenv('DISCORD_TOKEN')
 if TOKEN is None:
     raise ValueError("Discord token is not set. Please check your environment variables.")
 client.run(TOKEN)

@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 # Install cron and necessary Python libraries
 RUN apt-get update && apt-get install -y cron && \
-    pip install discord.py python-dotenv
+    pip install discord.py python-dotenv beautifulsoup4 requests
 
 # Copy the application files into the container
 COPY . .
