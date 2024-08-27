@@ -15,7 +15,7 @@ services:
   python:
     build:
       context: .
-      dockerfile: ./dockerfiles/python/dockerfile
+      dockerfile: ./dockerfiles/python.dockerfile
     container_name: python
     restart: always
     volumes:
@@ -25,6 +25,8 @@ services:
     tty: true
     env_file:
       - .env
+    mem_limit: 4g            # Set the memory limit for the container to 4GB
+    shm_size: '4gb' 
 
 volumes:
   mysql_data:

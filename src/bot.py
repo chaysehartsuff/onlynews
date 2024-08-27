@@ -4,6 +4,9 @@ import discord
 import os
 from dotenv import load_dotenv
 
+print("works")
+exit()
+
 # Load environment variables from .env file in the current directory
 env_path = os.path.join(os.path.dirname(__file__), '.env')
 load_dotenv(dotenv_path=env_path)
