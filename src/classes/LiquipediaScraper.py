@@ -2,12 +2,11 @@ import json
 from classes.Scrape import Scrape
 from classes.Chat import Chat
 from bs4 import BeautifulSoup
-
-liquipedia_url = "https://liquipedia.net"
+from ScraperType import ScraperType
 
 class LiquipediaScraper(Scrape):
     def __init__(self, url=None):
-        super().__init__(url=url, scrape_type=Scrape.Type.LOAD, load_time=3)
+        super().__init__(url=url, scrape_type=Scrape.Type.LOAD, load_time=3, base_url = "https://liquipedia.net")
 
     def processOutput(self, soup):
         links = [link.get('href') for link in soup.find_all('a')]
@@ -33,7 +32,7 @@ class LiquipediaScraper(Scrape):
             print("Liquipedia: Total links found: " + str(len(links)))
             print("Liquipedia: Scanning links for information...")
             for link in links:
-                self.url = liquipedia_url + link
+                self.url = self.base_url + link
                 page_soup = self.get_static()
 
                 infobox = page_soup.find('div', class_='fo-nttax-infobox-wrapper infobox-rocket')
@@ -78,3 +77,6 @@ class LiquipediaScraper(Scrape):
                 print(page_chat_response)
 
         return tournaments
+    
+    def getType(self):
+        return ScraperType.TOURNAMENT

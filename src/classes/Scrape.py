@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
+from ScraperType import ScraperType
 import requests
 from enum import Enum
 
@@ -13,11 +14,12 @@ class Scrape:
         STATIC = 1
         LOAD = 2
 
-    def __init__(self, url=None, scrape_type=Type.STATIC, load_time=0):
+    def __init__(self, url=None, scrape_type=Type.STATIC, load_time=0, base_url = ""):
         """Constructor to set the url property and type of scraping."""
         self.url = url
         self.scrape_type = scrape_type
         self.load_time = load_time
+        self.base_url = base_url
 
     def get(self):
         """Determines which method to use based on the type and processes the output."""
@@ -59,6 +61,8 @@ class Scrape:
             rendered_html = driver.page_source
             soup = BeautifulSoup(rendered_html, 'html.parser')
             return soup
+    def getType():
+        return ScraperType.BASE
 
     def processOutput(self, soup):
         """Process the BeautifulSoup object and return the prettified HTML."""

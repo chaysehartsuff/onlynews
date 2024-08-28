@@ -3,8 +3,10 @@
 import discord
 import os
 from dotenv import load_dotenv
+from classes.Data import Data
 
 print("works")
+print(Data.exec("SELECT * FROM tournaments"))
 exit()
 
 # Load environment variables from .env file in the current directory

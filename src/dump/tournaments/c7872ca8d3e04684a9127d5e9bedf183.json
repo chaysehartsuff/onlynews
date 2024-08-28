@@ -1,21 +1,21 @@
 [
     {
-        "tournament_name": "Esports World Cup 2024",
-        "start_date": "2024-08-22",
-        "end_date": "2024-08-25",
-        "prize_pool": 550000
-    },
-    {
         "tournament_name": "RLCS 2024 - World Championship",
         "start_date": "2024-09-10",
         "end_date": "2024-09-15",
         "prize_pool": 1165500
     },
     {
-        "tournament_name": "Champions Road - 3v3 Rumble Open: NA",
-        "start_date": "2024-08-23",
+        "tournament_name": "Esports World Cup 2024",
+        "start_date": "2024-08-22",
         "end_date": "2024-08-25",
-        "prize_pool": 34500
+        "prize_pool": 550000
+    },
+    {
+        "tournament_name": "RLCS 2024 - Major 2: London",
+        "start_date": "2024-06-20",
+        "end_date": "2024-06-23",
+        "prize_pool": 255000
     },
     {
         "tournament_name": "Champions Road - 2v2 Open: APAC",
@@ -64,17 +64,5 @@
         "start_date": "2024-08-26",
         "end_date": "2024-10-01",
         "prize_pool": 647
-    },
-    {
-        "tournament_name": "RLCS 2024 - Major 2: London",
-        "start_date": "2024-06-20",
-        "end_date": "2024-06-23",
-        "prize_pool": 255000
-    },
-    {
-        "tournament_name": "RLCS 2024 - Major 1: Copenhagen",
-        "start_date": "2024-03-28",
-        "end_date": "2024-03-31",
-        "prize_pool": 255000
     }
 ]
